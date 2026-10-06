@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Toko Apel</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: monospace;
+            margin: 0;
+            padding: 20px;
+            color: #315b3a;
+
+            /* BACKGROUND CATUR MERAH PUTIH */
+            background-color: #fffdf7;
+            background-image:
+                linear-gradient(45deg, #e85d5d 25%, transparent 25%),
+                linear-gradient(-45deg, #e85d5d 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #e85d5d 75%),
+                linear-gradient(-45deg, transparent 75%, #e85d5d 75%);
+            background-size: 50px 50px;
+            background-position:
+                0 0,
+                0 25px,
+                25px -25px,
+                -25px 0;
+        }
+
+        .wrap {
+            max-width: 820px;
+            margin: auto;
+            background: #fffdf7;
+            border: 4px solid #315b3a;
+            padding: 24px;
+            box-shadow: 8px 8px 0 #e85d5d;
+        }
+
+        h1 {
+            color: #d94f4f;
+        }
+
+        h2 {
+            color: #477a4d;
+        }
+
+        section {
+            border: 3px solid #315b3a;
+            background: #f4f8e9;
+            padding: 20px;
+            margin: 22px 0;
+        }
+
+        .produk {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: white;
+            border: 3px solid #315b3a;
+            padding: 18px;
+            margin: 12px 0;
+        }
+
+        .foto {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #315b3a;
+            flex: none;
+        }
+
+        .foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        button {
+            border: 3px solid #315b3a;
+            background: #e85d5d;
+            color: white;
+            padding: 8px 15px;
+            font-family: monospace;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 4px;
+            border-radius: 7px;
+        }
+
+        button:hover {
+            background: #c94b4b;
+        }
+
+        button.ghost {
+            background: white;
+            color: #315b3a;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            border: 3px solid #315b3a;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        #cartTotal {
+            background: #f7e8a4;
+            border: 3px solid #315b3a;
+            padding: 12px;
+            margin-top: 12px;
+            line-height: 1.8;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(49, 91, 58, 0.65);
+            padding: 20px;
+        }
+
+        .modal-content {
+            max-width: 500px;
+            margin: 60px auto;
+            background: #fffdf7;
+            border: 4px solid #315b3a;
+            padding: 22px;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            border: 3px solid #315b3a;
+            margin-top: 5px;
+            font-family: monospace;
+        }
+
+        .modal-content label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        .error {
+            display: none;
+            color: #c0392b;
+            margin-top: 5px;
+        }
+
+        .history-item {
+            background: white;
+            border: 2px solid #315b3a;
+            padding: 10px;
+            margin: 7px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+    <h1>Men's Styling</h1>
+
+    <section>
+
+        <h2>Produk</h2>
+
+        <div class="produk">
+
+            <div class="foto">
+                <img src="konjas.png" alt="Apel Merah">
+            </div>
+
+            <div>
+                <h3>Seude Jacket Chanel</h3>
+                <p>Rp 3.000.000</p>
+
+                <button
+                    class="tambahProduk"
+                    data-nama="Seude Jacket Chanel"
+                    data-harga="3000000">
+
+                    Tambah
+
+                </button>
+            </div>
+
+        </div>
+
+
+        <div class="produk">
+
+            <div class="foto">
+                <img src="konoadidas.png" alt="Apel Hijau">
+            </div>
+
+            <div>
+                <h3>Adidas Tracktop Europa Vintage</h3>
+                <p>Rp 2.500.000</p>
+
+                <button
+                    class="tambahProduk"
+                    data-nama="Adidas Tracktop Europa Vintage"
+                    data-harga="2500000">
+
+                    Tambah
+
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>Keranjang</h2>
+
+        <div id="cartList"></div>
+
+        <div id="cartTotal">
+            Total: Rp 0
+        </div>
+
+        <button id="btnCheckout">
+            Checkout
+        </button>
+
+        <button id="btnRiwayat" class="ghost">
+            Lihat Riwayat
+        </button>
+
+        <div id="historyBox" style="display: none;">
+
+            <h3>Riwayat Checkout</h3>
+
+            <div id="historyList"></div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- LATIHAN 3: FORM DATA PEMBELI -->
+
+<div class="modal" id="buyerModal">
+
+    <div class="modal-content">
+
+        <button id="btnCloseModal" class="ghost">
+            X
+        </button>
+
+        <h2>Data Pembeli</h2>
+
+        <label for="buyerName">
+            Nama
+        </label>
+
+        <input
+            type="text"
+            id="buyerName"
+            placeholder="Masukkan nama">
+
+        <div class="error" id="errorName">
+            Nama wajib diisi minimal 3 karakter.
+        </div>
+
+
+        <label for="buyerAddress">
+            Alamat
+        </label>
+
+        <input
+            type="text"
+            id="buyerAddress"
+            placeholder="Masukkan alamat">
+
+        <div class="error" id="errorAddress">
+            Alamat wajib diisi.
+        </div>
+
+
+        <label for="buyerPhone">
+            No HP
+        </label>
+
+        <input
+            type="text"
+            id="buyerPhone"
+            placeholder="Masukkan nomor HP">
+
+        <div class="error" id="errorPhone">
+            No HP harus 10-13 angka.
+        </div>
+
+
+        <button id="btnSimpanPembeli">
+            Lanjut Checkout
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+$(function () {
+
+    let cart = [];
+
+
+    // Menampilkan isi keranjang
+    function updateCartUI() {
+
+        $('#cartList').html('');
+
+
+        cart.forEach(function (item, index) {
+
+            $('#cartList').append(`
+
+                <div class="cart-item">
+
+                    <div>
+                        <strong>${item.nama}</strong>
+                        <br>
+                        Rp ${item.harga.toLocaleString('id-ID')}
+                        x ${item.qty}
+                    </div>
+
+                    <div>
+
+                        <button
+                            class="kurang"
+                            data-index="${index}">
+                            -
+                        </button>
+
+                        <button
+                            class="tambah"
+                            data-index="${index}">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `);
+
+        });
+
+
+        // LATIHAN 1
+        // Diskon 10% jika total > Rp100.000
+
+        let totalHarga = cart.reduce(
+            (sum, item) =>
+                sum + (item.harga * item.qty),
+            0
+        );
+
+
+        if (totalHarga > 100000) {
+
+            const diskon = totalHarga * 0.1;
+
+            totalHarga -= diskon;
+
+            $('#cartTotal').html(`
+
+                Harga sebelum diskon:
+                Rp ${(totalHarga + diskon)
+                    .toLocaleString('id-ID')}
+
+                <br>
+
+                Diskon 10%:
+                Rp ${diskon
+                    .toLocaleString('id-ID')}
+
+                <br>
+
+                Harga setelah diskon:
+                Rp ${totalHarga
+                    .toLocaleString('id-ID')}
+
+            `);
+
+        } else {
+
+            $('#cartTotal').html(`
+
+                Total:
+                Rp ${totalHarga
+                    .toLocaleString('id-ID')}
+
+            `);
+
+        }
+
+    }
+
+
+    // Tambah produk ke keranjang
+    $('.tambahProduk').click(function () {
+
+        const nama = $(this).data('nama');
+        const harga = Number($(this).data('harga'));
+
+        const item = cart.find(function (item) {
+            return item.nama === nama;
+        });
+
+
+        if (item) {
+
+            item.qty++;
+
+        } else {
+
+            cart.push({
+                nama: nama,
+                harga: harga,
+                qty: 1
+            });
+
+        }
+
+
+        updateCartUI();
+
+    });
+
+
+    // Tambah jumlah
+    $(document).on(
+        'click',
+        '.tambah',
+        function () {
+
+            const index =
+                $(this).data('index');
+
+            cart[index].qty++;
+
+            updateCartUI();
+
+        }
+    );
+
+
+    // Kurangi jumlah
+    $(document).on(
+        'click',
+        '.kurang',
+        function () {
+
+            const index =
+                $(this).data('index');
+
+
+            if (cart[index].qty > 1) {
+
+                cart[index].qty--;
+
+            } else {
+
+                cart.splice(index, 1);
+
+            }
+
+
+            updateCartUI();
+
+        }
+    );
+
+
+    // LATIHAN 3
+    // Modal muncul sebelum checkout
+
+    $('#btnCheckout').click(function () {
+
+        if (cart.length === 0) {
+
+            alert('Keranjang masih kosong!');
+
+            return;
+        }
+
+        $('#buyerModal').fadeIn();
+
+    });
+
+
+    // Tutup modal
+    $('#btnCloseModal').click(function () {
+
+        $('#buyerModal').fadeOut();
+
+    });
+
+
+    // Validasi form pembeli
+    $('#btnSimpanPembeli').click(function () {
+
+        const nama =
+            $('#buyerName').val().trim();
+
+        const alamat =
+            $('#buyerAddress').val().trim();
+
+        const noHP =
+            $('#buyerPhone').val().trim();
+
+        let valid = true;
+
+
+        if (nama.length < 3) {
+
+            $('#errorName').show();
+
+            valid = false;
+
+        } else {
+
+            $('#errorName').hide();
+
+        }
+
+
+        if (alamat.length === 0) {
+
+            $('#errorAddress').show();
+
+            valid = false;
+
+        } else {
+
+            $('#errorAddress').hide();
+
+        }
+
+
+        if (!/^[0-9]{10,13}$/.test(noHP)) {
+
+            $('#errorPhone').show();
+
+            valid = false;
+
+        } else {
+
+            $('#errorPhone').hide();
+
+        }
+
+
+        if (valid) {
+
+            let total = cart.reduce(
+                (sum, item) =>
+                    sum + (item.harga * item.qty),
+                0
+            );
+
+            let qty = cart.reduce(
+                (sum, item) =>
+                    sum + item.qty,
+                0
+            );
+
+
+            // Hitung diskon lagi sebelum disimpan
+            if (total > 100000) {
+
+                total -= total * 0.1;
+
+            }
+
+
+            // LATIHAN 2
+            simpanRiwayat(total, qty);
+
+
+            alert(
+                'Checkout berhasil! Terima kasih, ' +
+                nama
+            );
+
+
+            cart = [];
+
+            updateCartUI();
+
+            $('#buyerModal').fadeOut();
+
+            $('#buyerName').val('');
+            $('#buyerAddress').val('');
+            $('#buyerPhone').val('');
+
+        }
+
+    });
+
+
+    // LATIHAN 2
+    // Simpan riwayat ke localStorage
+
+    function simpanRiwayat(total, qty) {
+
+        const riwayat =
+            JSON.parse(
+                localStorage.getItem('riwayat')
+            ) || [];
+
+
+        riwayat.push({
+
+            tanggal: new Date().toISOString(),
+
+            total,
+
+            qty
+
+        });
+
+
+        localStorage.setItem(
+            'riwayat',
+            JSON.stringify(riwayat)
+        );
+
+    }
+
+
+    // Menampilkan riwayat
+    $('#btnRiwayat').click(function () {
+
+        const riwayat =
+            JSON.parse(
+                localStorage.getItem('riwayat')
+            ) || [];
+
+
+        $('#historyList').html('');
+
+
+        if (riwayat.length === 0) {
+
+            $('#historyList').html(
+                '<p>Belum ada riwayat checkout.</p>'
+            );
+
+        } else {
+
+            riwayat.forEach(function (item) {
+
+                $('#historyList').append(`
+
+                    <div class="history-item">
+
+                        Tanggal:
+                        ${new Date(item.tanggal)
+                            .toLocaleString('id-ID')}
+
+                        <br>
+
+                        Jumlah:
+                        ${item.qty}
+
+                        <br>
+
+                        Total:
+                        Rp ${item.total
+                            .toLocaleString('id-ID')}
+
+                    </div>
+
+                `);
+
+            });
+
+        }
+
+
+        $('#historyBox').slideToggle();
+
+    });
+
+
+    updateCartUI();
+
+});
+
+</script>
+
+</body>
+</html>
