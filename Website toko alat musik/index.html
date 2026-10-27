@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nada Musik - Toko Alat Musik</title>
+
+    <!-- CSS terpisah -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- CDN jQuery & jQuery Validation Plugin -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+</head>
+
+<body>
+    <!-- NAVBAR + DROPDOWN -->
+    <nav>
+        <div class="container">
+            <a href="#beranda" class="logo">&#9835; Nada Musik</a>
+            <ul class="nav-list">
+                <li><a href="#beranda">Beranda</a></li>
+                <li class="dropdown">
+                    <button class="dropdown-btn" type="button">Kategori &#9660;</button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#produk">Gitar</a></li>
+                        <li><a href="#produk">Keyboard &amp; Piano</a></li>
+                        <li><a href="#produk">Perkusi</a></li>
+                        <li><a href="#produk">Aksesori</a></li>
+                    </ul>
+                </li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#daftar">Daftar Member</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="beranda" class="hero">
+        <div class="container">
+            <h1>Nada Musik</h1>
+            <p>Temukan alat musik impianmu: gitar, keyboard, perkusi, dan aksesori berkualitas dengan harga bersahabat.</p>
+            <a href="#produk" class="btn-hero">Lihat Produk</a>
+        </div>
+    </header>
+
+    <!-- PRODUK DENGAN TAB -->
+    <section id="produk" class="container">
+        <h2>Produk Pilihan</h2>
+
+        <div class="tabs">
+            <button class="tab active" type="button" data-target="#tab-gitar">Gitar</button>
+            <button class="tab" type="button" data-target="#tab-keyboard">Keyboard &amp; Piano</button>
+            <button class="tab" type="button" data-target="#tab-perkusi">Perkusi</button>
+            <button class="tab" type="button" data-target="#tab-aksesori">Aksesori</button>
+        </div>
+
+        <div id="tab-gitar" class="tab-panel produk-grid">
+            <div class="produk-card">
+                <div class="ikon">&#127928;</div>
+                <h3>Gitar Akustik Pemula</h3>
+                <p>Body dreadnought, suara hangat, cocok untuk belajar dan bermain santai.</p>
+                <div class="harga">Rp 1.250.000</div>
+            </div>
+            <div class="produk-card">
+                <div class="ikon">&#127928;</div>
+                <h3>Gitar Elektrik Stratocaster</h3>
+                <p>Tiga pickup single coil dengan sustain panjang untuk berbagai genre.</p>
+                <div class="harga">Rp 3.400.000</div>
+            </div>
+            <div class="produk-card">
+                <div class="ikon">&#127928;</div>
+                <h3>Bass Elektrik 4 Senar</h3>
+                <p>Nada bass tebal dan stabil, nyaman dimainkan untuk band maupun rekaman.</p>
+                <div class="harga">Rp 2.900.000</div>
+            </div>
+        </div>
+
+        <div id="tab-keyboard" class="tab-panel produk-grid">
+            <div class="produk-card">
+                <div class="ikon">&#127929;</div>
+                <h3>Keyboard 61 Tuts</h3>
+                <p>Ratusan suara dan ritme bawaan, praktis untuk latihan dan panggung kecil.</p>
+                <div class="harga">Rp 2.100.000</div>
+            </div>
+            <div class="produk-card">
+                <div class="ikon">&#127929;</div>
+                <h3>Piano Digital 88 Tuts</h3>
+                <p>Tuts weighted dengan rasa piano asli, lengkap dengan pedal sustain.</p>
+                <div class="harga">Rp 7.500.000</div>
+            </div>
+        </div>
+
+        <div id="tab-perkusi" class="tab-panel produk-grid">
+            <div class="produk-card">
+                <div class="ikon">&#129345;</div>
+                <h3>Drum Set Akustik 5 Piece</h3>
+                <p>Satu set drum lengkap dengan hardware, stool, dan cymbal dasar.</p>
+                <div class="harga">Rp 6.800.000</div>
+            </div>
+            <div class="produk-card">
+                <div class="ikon">&#129345;</div>
+                <h3>Cajon Kayu Birch</h3>
+                <p>Suara bass dan snare dalam satu kotak, ringkas dan mudah dibawa.</p>
+                <div class="harga">Rp 650.000</div>
+            </div>
+            <div class="produk-card">
+                <div class="ikon">&#129345;</div>
+                <h3>Tamborin Profesional</h3>
+                <p>Jingle logam jernih dengan frame kokoh untuk pengiring lagu.</p>
+                <div class="harga">Rp 120.000</div>
+            </div>
+        </div>
+
+        <div id="tab-aksesori" class="tab-panel produk-grid">
+            <div class="produk-card">
+                <div class="ikon">&#127911;</div>
+                <h3>Senar Gitar Set</h3>
+                <p>Senar tahan lama dengan nada cerah, tersedia untuk akustik dan elektrik.</p>
+                <div class="harga">Rp 85.000</div>
+            </div>
+            <div class="produk-card">
+                <div class="ikon">&#127911;</div>
+                <h3>Tas Gitar Padded</h3>
+                <p>Lapisan busa tebal melindungi gitar dari benturan saat dibawa.</p>
+                <div class="harga">Rp 220.000</div>
+            </div>
+            <div class="produk-card">
+                <div class="ikon">&#127911;</div>
+                <h3>Tuner Clip-On</h3>
+                <p>Layar jelas dan deteksi cepat, cukup dijepit di headstock gitar.</p>
+                <div class="harga">Rp 95.000</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TENTANG -->
+    <section id="tentang" class="tentang">
+        <div class="container narrow">
+            <h2>Tentang Nada Musik</h2>
+            <p>Nada Musik adalah toko alat musik untuk pelajar, musisi hobi, hingga band profesional. Kami memilih
+                setiap produk dengan teliti agar kamu mendapatkan suara terbaik sesuai budget.</p>
+        </div>
+    </section>
+
+    <!-- FORM PENDAFTARAN MEMBER (jQuery Validation, 7 input) -->
+    <section id="daftar" class="form-section">
+        <div class="container">
+            <h2>Pendaftaran Member</h2>
+            <form id="formMember" class="form-box">
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" placeholder="Nama lengkap Anda">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Aktif</label>
+                    <input type="text" id="email" name="email" placeholder="nama@domain.com">
+                </div>
+                <div class="form-group">
+                    <label for="hp">Nomor WhatsApp / HP</label>
+                    <input type="text" id="hp" name="hp" placeholder="10-12 digit angka">
+                </div>
+                <div class="form-group">
+                    <label for="usia">Usia</label>
+                    <input type="text" id="usia" name="usia" placeholder="Minimal 12 tahun">
+                </div>
+                <div class="form-group">
+                    <label for="minat">Alat Musik Favorit</label>
+                    <select id="minat" name="minat">
+                        <option value="">-- Pilih Alat Musik --</option>
+                        <option>Gitar</option>
+                        <option>Keyboard &amp; Piano</option>
+                        <option>Perkusi</option>
+                        <option>Aksesori</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password"
+                        placeholder="Minimal 8 karakter, ada huruf &amp; angka">
+                </div>
+                <div class="form-group">
+                    <label for="konfirmasi">Konfirmasi Password</label>
+                    <input type="password" id="konfirmasi" name="konfirmasi" placeholder="Ulangi password yang sama">
+                </div>
+                <button type="submit" class="btn">Daftar Member</button>
+                <div class="sukses" id="sukses">
+                    <strong>Pendaftaran Berhasil!</strong> Selamat bergabung menjadi member Nada Musik.
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER & UTILITY -->
+    <footer>
+        <p>&copy; 2026 Nada Musik | [Nama Anda - NIM] - Praktikum Pemrograman Web Dasar</p>
+    </footer>
+
+    <div id="toast"></div>
+    <button id="backToTop" type="button" aria-label="Kembali ke atas">&#8593;</button>
+
+    <!-- JS terpisah -->
+    <script src="script.js"></script>
+</body>
+
+</html>
