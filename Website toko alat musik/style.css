@@ -1,0 +1,400 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --navy: #14213d;
+    --navy-tua: #0b1426;
+    --emas: #fca311;
+    --emas-tua: #d98a00;
+    --putih-tulang: #f6f4ef;
+    --abu: #666;
+    --merah: #c0392b;
+    --hijau: #27ae60;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--putih-tulang);
+    color: var(--navy-tua);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.container.narrow {
+    max-width: 700px;
+    text-align: center;
+}
+
+/* ---------- NAVBAR & DROPDOWN ---------- */
+nav {
+    background: var(--navy-tua);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+}
+
+.logo {
+    color: var(--emas);
+    font-weight: 700;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+    align-items: center;
+}
+
+.nav-list a,
+.dropdown-btn {
+    color: #fff;
+    text-decoration: none;
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.nav-list a:hover,
+.dropdown-btn:hover {
+    color: var(--emas);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 190px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    list-style: none;
+    padding: 8px 0;
+    margin-top: 8px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 18px;
+    color: var(--navy-tua);
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    background: var(--putih-tulang);
+    color: var(--emas-tua);
+}
+
+/* ---------- HERO ---------- */
+.hero {
+    background: linear-gradient(135deg, var(--navy), var(--navy-tua));
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 12px;
+    color: var(--emas);
+}
+
+.hero p {
+    font-size: 18px;
+    color: #d9dce4;
+    max-width: 620px;
+    margin: 0 auto 28px;
+}
+
+.btn-hero {
+    display: inline-block;
+    padding: 12px 32px;
+    background: var(--emas);
+    color: var(--navy-tua);
+    font-weight: 700;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.btn-hero:hover {
+    background: var(--emas-tua);
+}
+
+section {
+    padding: 60px 0;
+}
+
+section h2 {
+    font-size: 28px;
+    margin-bottom: 24px;
+    color: var(--navy);
+    text-align: center;
+}
+
+/* ---------- TAB & PRODUK ---------- */
+.tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.tab {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 30px;
+    background: #e3e1da;
+    color: var(--navy-tua);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.tab:hover {
+    background: #d6d3c9;
+}
+
+.tab.active {
+    background: var(--navy);
+    color: #fff;
+}
+
+.produk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.produk-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    position: relative;
+    top: 0;
+    border-top: 4px solid var(--emas);
+}
+
+.produk-card .ikon {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.produk-card h3 {
+    color: var(--navy);
+    margin-bottom: 8px;
+}
+
+.produk-card p {
+    font-size: 14px;
+    color: var(--abu);
+    margin-bottom: 12px;
+}
+
+.harga {
+    font-weight: 700;
+    color: var(--emas-tua);
+    font-size: 18px;
+}
+
+/* ---------- TENTANG ---------- */
+.tentang {
+    background: #fff;
+}
+
+/* ---------- FORM & VALIDASI ---------- */
+.form-section {
+    background: #ece9e1;
+    border-top: 1px solid #ddd9cd;
+    border-bottom: 1px solid #ddd9cd;
+}
+
+.form-box {
+    background: #fff;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 36px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #fafafa;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--navy);
+    background: #fff;
+}
+
+input.is-error,
+select.is-error {
+    border-color: var(--merah);
+    background: #fdf2f2;
+}
+
+input.is-valid,
+select.is-valid {
+    border-color: var(--hijau);
+}
+
+.pesan-error {
+    color: var(--merah);
+    font-size: 13px;
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: var(--navy-tua);
+}
+
+.sukses {
+    display: none;
+    margin-top: 20px;
+    padding: 16px;
+    background: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 8px;
+    border-left: 5px solid var(--hijau);
+    font-size: 15px;
+}
+
+/* ---------- TOAST ---------- */
+#toast {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 16px 24px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    z-index: 1000;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+#toast.success {
+    background: var(--hijau);
+}
+
+#toast.error {
+    background: var(--merah);
+}
+
+/* ---------- BACK TO TOP ---------- */
+#backToTop {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: var(--navy-tua);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 99;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: background 0.2s;
+}
+
+#backToTop:hover {
+    background: var(--emas-tua);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    background: var(--navy-tua);
+    color: #aab0bf;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 14px;
+}
+
+/* ---------- RESPONSIF ---------- */
+@media (max-width: 700px) {
+    nav .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-list {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .form-box {
+        padding: 24px;
+    }
+}
