@@ -4,25 +4,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portofolio Yan</title>
+  <title>Portofolio Shinta</title>
 
   <style>
     /* ===== 1. Warna ===== */
     :root {
-      --latar: #eef3f1;
+      --latar: #fff8e7;
       --kartu: #ffffff;
-      --teks: #1c2b27;
-      --teks-pudar: #5f726c;
-      --aksen: #0f766e;
+      --teks: #392d35;
+      --teks-pudar: #806d76;
+      --aksen: #e879a9;
+      --kuning: #f2c94c;
+      --border: #f5dce7;
     }
 
     /* Mode gelap */
     body.gelap {
-      --latar: #121a18;
-      --kartu: #1b2623;
-      --teks: #e6efec;
-      --teks-pudar: #94a8a1;
-      --aksen: #5fd1c4;
+      --latar: #29212a;
+      --kartu: #392d3a;
+      --teks: #fff4ed;
+      --teks-pudar: #d2b9c6;
+      --aksen: #f29ac1;
+      --kuning: #f5d36e;
+      --border: #574151;
     }
 
     /* ===== 2. Dasar halaman ===== */
@@ -36,6 +40,7 @@
       line-height: 1.6;
       background: var(--latar);
       color: var(--teks);
+      transition: background 0.3s, color 0.3s;
     }
 
     /* ===== 3. Bagian atas ===== */
@@ -58,17 +63,23 @@
       background: transparent;
       color: var(--aksen);
       cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #tombol-tema:hover {
+      background: var(--aksen);
+      color: white;
     }
 
     /* ===== 4. Isi halaman ===== */
     .isi {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 0 24px 60px;
     }
 
     .perkenalan {
-      padding: 50px 0 20px;
+      padding: 50px 0 35px;
     }
 
     .perkenalan h1 {
@@ -87,11 +98,16 @@
       width: 100%;
       padding: 12px 16px;
       margin: 8px 0 20px;
-      border: 1px solid var(--teks-pudar);
+      border: 1px solid var(--border);
       border-radius: 10px;
       font-size: 1rem;
       background: var(--kartu);
       color: var(--teks);
+      outline: none;
+    }
+
+    #cari:focus {
+      border-color: var(--aksen);
     }
 
     /* ===== 6. Kartu proyek ===== */
@@ -106,14 +122,16 @@
       padding: 24px;
       background: var(--kartu);
       border-radius: 14px;
+      border-bottom: 4px solid var(--kuning);
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
       color: inherit;
       text-decoration: none;
-      transition: transform 0.2s;
+      transition: transform 0.2s, border-color 0.2s;
     }
 
     .kartu:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
+      border-bottom-color: var(--aksen);
     }
 
     .kartu h3 {
@@ -126,11 +144,41 @@
       color: var(--teks-pudar);
     }
 
+    /* ===== 7. Judul proyek ===== */
+    .judul-proyek {
+      color: var(--aksen);
+      margin-bottom: 12px;
+    }
+
     /* Pesan proyek tidak ditemukan */
     .pesan-kosong {
       display: none;
       color: var(--teks-pudar);
     }
+
+    /* ===== 8. Footer ===== */
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--teks-pudar);
+      border-top: 1px solid var(--border);
+    }
+
+    footer span {
+      color: var(--aksen);
+    }
+
+    /* ===== 9. Tampilan HP ===== */
+    @media (max-width: 600px) {
+      .perkenalan h1 {
+        font-size: 2rem;
+      }
+
+      .daftar-proyek {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 
@@ -138,7 +186,7 @@
 
   <!-- ===== Bagian atas ===== -->
   <header class="header">
-    <h2 class="logo">Yan</h2>
+    <h2 class="logo">Shinta</h2>
     <button id="tombol-tema">Mode gelap</button>
   </header>
 
@@ -146,12 +194,12 @@
 
     <!-- ===== Perkenalan ===== -->
     <section class="perkenalan">
-      <h1>Halo, saya Yan.</h1>
+      <h1>Halo, saya Shinta.</h1>
       <p>Mahasiswa Sistem Informasi yang suka membuat aplikasi web.</p>
     </section>
 
     <!-- ===== Daftar proyek ===== -->
-    <h2>Proyek saya</h2>
+    <h2 class="judul-proyek">Proyek saya</h2>
 
     <!-- Kotak pencarian -->
     <input type="text" id="cari" placeholder="Cari proyek...">
@@ -170,6 +218,48 @@
         <p>Menu berbeda untuk setiap peran pengguna.</p>
       </a>
 
+      <!-- Proyek ketiga -->
+      <a class="kartu" href="Minggu5_pwd/index.html">
+        <h3>Minggu 5 PWD</h3>
+        <p>Kumpulan latihan praktikum pengembangan web.</p>
+      </a>
+
+      <!-- Proyek keempat -->
+      <a class="kartu" href="PPWD2026(web porto)/index.html">
+        <h3>Web Portofolio</h3>
+        <p>Website portofolio untuk menampilkan hasil karya.</p>
+      </a>
+
+      <!-- Proyek kelima -->
+      <a class="kartu" href="pwd web baju/index.html">
+        <h3>Website Baju</h3>
+        <p>Website katalog dan penjualan produk pakaian.</p>
+      </a>
+
+      <!-- Proyek keenam -->
+      <a class="kartu" href="Warung ice cream/index.html">
+        <h3>Warung Ice Cream</h3>
+        <p>Website usaha yang menampilkan produk es krim.</p>
+      </a>
+
+      <!-- Proyek ketujuh -->
+      <a class="kartu" href="warung-kopi-nusantara/index.html">
+        <h3>Warung Kopi Nusantara</h3>
+        <p>Website yang menampilkan produk dan informasi warung kopi.</p>
+      </a>
+
+      <!-- Proyek kedelapan -->
+      <a class="kartu" href="Web Berita/index.html">
+        <h3>Web Berita</h3>
+        <p>Website untuk menyajikan berbagai informasi dan berita.</p>
+      </a>
+
+      <!-- Proyek kesembilan -->
+      <a class="kartu" href="Website toko alat musik/index.html">
+        <h3>Toko Alat Musik</h3>
+        <p>Website katalog berbagai produk dan alat musik.</p>
+      </a>
+
     </section>
 
     <p id="pesan-kosong" class="pesan-kosong">
@@ -178,7 +268,13 @@
 
   </main>
 
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>© 2026 <span>Shinta</span>. All rights reserved.</p>
+  </footer>
+
   <script>
+
     /* ===== 1. Mode gelap / terang ===== */
 
     const tombolTema = document.getElementById("tombol-tema");
@@ -220,6 +316,7 @@
         pesanKosong.style.display = "block";
       }
     });
+
   </script>
 
 </body>
