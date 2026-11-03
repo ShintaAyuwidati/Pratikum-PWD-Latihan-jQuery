@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Deret Bilangan Ganjil</title>
+</head>
+
+<body>
+
+    <h2>Deret Bilangan Ganjil</h2>
+
+    <input type="number" id="angka" placeholder="Masukkan nilai N">
+    <button onclick="tampilkanDeret()">Tampilkan</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function tampilkanDeret() {
+            let n = parseInt(document.getElementById("angka").value);
+            let hasil = document.getElementById("hasil");
+
+            if (n < 1 || isNaN(n)) {
+                hasil.innerHTML = "Masukkan angka positif!";
+                return;
+            }
+
+            let deret = "";
+
+            for (let i = 1; i <= n; i += 2) {
+                deret += i;
+
+                if (i + 2 <= n) {
+                    deret += ", ";
+                }
+            }
+
+            hasil.innerHTML = "Deret bilangan ganjil: " + deret;
+        }
+    </script>
+
+</body>
+
+</html>

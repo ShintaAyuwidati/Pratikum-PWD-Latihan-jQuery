@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kalkulator Diskon</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-image: url("kalkul.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .kalkulator {
+            background: rgb(164, 243, 239);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+            width: 80%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            font-size: 16px;
+            background: #f8b0e1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        .hasil {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="kalkulator">
+        <h2>🛒 Kalkulator Diskon</h2>
+
+        <input type="number" id="total" placeholder="Masukkan Total Belanja">
+        <br>
+
+        <button onclick="hitungDiskon()">Hitung Diskon</button>
+
+        <div class="hasil">
+            <span id="hasilAngka"></span>
+        </div>
+    </div>
+
+    <script>
+        function hitungDiskon() {
+            let total = parseFloat(document.getElementById('total').value);
+            let diskon = 0;
+
+            if (total > 100000) {
+                diskon = total * 10 / 100;
+            }
+
+            let totalBayar = total - diskon;
+
+            document.getElementById('hasilAngka').innerHTML =
+                "Diskon: Rp " + diskon.toLocaleString('id-ID') +
+                "<br>Total Bayar: Rp " + totalBayar.toLocaleString('id-ID');
+        }
+    </script>
+
+</body>
+
+</html>

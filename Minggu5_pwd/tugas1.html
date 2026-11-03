@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Konversi Suhu</title>
+</head>
+
+<body>
+
+    <h2>Konversi Suhu</h2>
+
+    <input type="text" id="celsius" placeholder="Masukkan suhu Celsius">
+    <button onclick="konversiSuhu()">Konversi</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function konversiSuhu() {
+            let celsius = document.getElementById("celsius").value;
+            let hasil = document.getElementById("hasil");
+
+            if (celsius === "" || isNaN(celsius)) {
+                hasil.innerHTML = "Masukkan suhu berupa angka!";
+                return;
+            }
+
+            celsius = parseFloat(celsius);
+
+            let fahrenheit = (celsius * 9 / 5) + 32;
+            let kelvin = celsius + 273.15;
+
+            hasil.innerHTML =
+                "Fahrenheit: " + fahrenheit + " °F<br>" +
+                "Kelvin: " + kelvin + " K";
+        }
+    </script>
+
+</body>
+
+</html>

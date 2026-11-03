@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konversi Nilai</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        main {
+            width: 400px;
+            margin: 30px auto;
+        }
+
+        section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-top: 8px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-right: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #hasil_1019 {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 500px) {
+            main {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Konversi Nilai</h1>
+        <p>Shinta Ayuwidati - H1101251019</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Masukkan Nilai</h2>
+
+            <label for="nilai_1019">Nilai Angka:</label>
+            <input type="number" id="nilai_1019" min="0" max="100">
+
+            <button onclick="konversiNilai()">Konversi</button>
+            <button onclick="resetNilai()">Reset</button>
+
+            <p id="hasil_1019"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Mahasiswa Sistem Informasi</p>
+    </footer>
+
+    <script>
+        function konversiNilai() {
+            // Mengambil nilai dari input
+            let nilai = Number(document.getElementById("nilai_1019").value);
+            let hasil = document.getElementById("hasil_1019");
+
+            // Mengecek apakah nilai yang dimasukkan valid
+            if (isNaN(nilai) || nilai < 0 || nilai > 100) {
+                hasil.textContent = "Nilai harus 0 sampai 100";
+                hasil.style.color = "red";
+                return;
+            }
+
+            // Menentukan nilai huruf menggunakan if else
+            if (nilai >= 85) {
+                hasil.textContent = "Nilai A";
+                hasil.style.color = "green";
+            } else {
+                if (nilai >= 75) {
+                    hasil.textContent = "Nilai B";
+                    hasil.style.color = "blue";
+                } else {
+                    if (nilai >= 65) {
+                        hasil.textContent = "Nilai C";
+                        hasil.style.color = "orange";
+                    } else {
+                        if (nilai >= 50) {
+                            hasil.textContent = "Nilai D";
+                            hasil.style.color = "purple";
+                        } else {
+                            hasil.textContent = "Nilai E";
+                            hasil.style.color = "red";
+                        }
+                    }
+                }
+            }
+        }
+
+        function resetNilai() {
+            document.getElementById("nilai_1019").value = "";
+            document.getElementById("hasil_1019").textContent = "";
+        }
+    </script>
+
+</body>
+</html>
+
