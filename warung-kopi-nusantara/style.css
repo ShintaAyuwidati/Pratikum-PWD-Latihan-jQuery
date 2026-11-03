@@ -1,0 +1,294 @@
+
+/* Pengaturan dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fffaf3;
+    color: #3e2723;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #3e2723;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    color: #f5d6a1;
+    font-size: 24px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    color: #f5d6a1;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-size: 14px;
+}
+
+#cartBtn {
+    background-color: #d4a373;
+    color: #3e2723;
+}
+
+/* Hero */
+.hero {
+    min-height: 350px;
+    padding: 70px 7%;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(120deg, #4e342e, #8d6e63);
+    color: white;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.subjudul {
+    color: #f5d6a1;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.hero-text p {
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #d4a373;
+    color: #3e2723;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #f5d6a1;
+}
+
+/* Katalog */
+.katalog {
+    padding: 55px 7%;
+    text-align: center;
+}
+
+.katalog h2,
+.about h2 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.deskripsi {
+    color: #795548;
+    margin-bottom: 25px;
+}
+
+/* Pencarian */
+#inputCari {
+    width: 100%;
+    max-width: 450px;
+    padding: 13px;
+    border: 1px solid #d7ccc8;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+/* Filter kategori */
+.filter-kategori {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background-color: #efebe9;
+    color: #4e342e;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: #6d4c41;
+    color: white;
+}
+
+/* Kartu produk */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+    text-align: left;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(62, 39, 35, 0.12);
+    padding-bottom: 18px;
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.product-card h3 {
+    font-size: 18px;
+    margin: 15px 15px 5px;
+}
+
+.product-card p {
+    color: #795548;
+    margin: 0 15px;
+}
+
+.product-card h4 {
+    color: #8d5524;
+    font-size: 18px;
+    margin: 8px 15px 12px;
+}
+
+.btn-add-cart {
+    background-color: #6d4c41;
+    color: white;
+    margin-left: 15px;
+}
+
+.btn-add-cart:hover {
+    background-color: #4e342e;
+}
+
+/* Tentang kami */
+.about {
+    background-color: #f1e4d1;
+    padding: 50px 7%;
+    text-align: center;
+}
+
+.about p {
+    max-width: 700px;
+    margin: 10px auto 0;
+}
+
+/* Footer */
+.footer {
+    background-color: #3e2723;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+/* Keranjang */
+.cart-sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px;
+    max-width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: white;
+    padding: 25px;
+    box-shadow: -3px 0 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.cart-sidebar h2 {
+    margin: 20px 0;
+}
+
+#closeCart {
+    background-color: #efebe9;
+}
+
+#checkoutBtn {
+    width: 100%;
+    margin-top: 15px;
+    background-color: #6d4c41;
+    color: white;
+}
+
+#cartTotal {
+    color: #8d5524;
+}
+
+/* Tampilan HP */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu {
+        gap: 12px;
+    }
+
+    .hero {
+        padding: 50px 7%;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .katalog h2,
+    .about h2 {
+        font-size: 25px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}

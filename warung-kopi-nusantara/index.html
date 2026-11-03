@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warung Kopi Nusantara</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <h2 class="logo">Kopi Nusantara</h2>
+
+        <div class="menu">
+            <a href="#hero">Beranda</a>
+            <a href="#katalog">Produk</a>
+            <a href="#about">Tentang Kami</a>
+            <button id="cartBtn">Keranjang (0)</button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-text">
+            <p class="subjudul">Rasa Asli Nusantara</p>
+            <h1>Temukan Kopi Favoritmu</h1>
+            <p>
+                Nikmati pilihan kopi berkualitas dengan cita rasa
+                khas Indonesia.
+            </p>
+            <a href="#katalog" class="btn">Lihat Produk</a>
+        </div>
+    </section>
+
+    <!-- Katalog Produk -->
+    <section class="katalog" id="katalog">
+        <h2>Pilihan Kopi Kami</h2>
+        <p class="deskripsi">
+            Temukan kopi favorit untuk menemani harimu.
+        </p>
+
+        <!-- Pencarian -->
+        <input
+            type="text"
+            id="inputCari"
+            placeholder="Cari kopi favoritmu..."
+        >
+
+        <!-- Filter Kategori -->
+        <div class="filter-kategori" id="filterKategori">
+            <button class="filter-btn active" data-kategori="semua">
+                Semua
+            </button>
+            <button class="filter-btn" data-kategori="biji">
+                Biji Kopi
+            </button>
+            <button class="filter-btn" data-kategori="bubuk">
+                Kopi Bubuk
+            </button>
+            <button class="filter-btn" data-kategori="minuman">
+                Minuman
+            </button>
+        </div>
+
+        <!-- Daftar Produk -->
+        <div class="product-grid" id="produkGrid">
+
+            <div class="product-card">
+                <img src="https://placehold.co/400x300/6f4e37/ffffff?text=Arabica+Gayo"
+                     alt="Kopi Arabica Gayo">
+                <h3>Kopi Arabica Gayo</h3>
+                <p>Biji Kopi</p>
+                <h4>Rp85.000</h4>
+                <button class="btn-add-cart">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://placehold.co/400x300/8b5e3c/ffffff?text=Robusta+Lampung"
+                     alt="Kopi Robusta Lampung">
+                <h3>Kopi Robusta Lampung</h3>
+                <p>Biji Kopi</p>
+                <h4>Rp65.000</h4>
+                <button class="btn-add-cart">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://placehold.co/400x300/795548/ffffff?text=Kopi+Toraja"
+                     alt="Kopi Toraja">
+                <h3>Kopi Toraja</h3>
+                <p>Kopi Bubuk</p>
+                <h4>Rp75.000</h4>
+                <button class="btn-add-cart">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://placehold.co/400x300/a47551/ffffff?text=Kopi+Java"
+                     alt="Kopi Java">
+                <h3>Kopi Java</h3>
+                <p>Kopi Bubuk</p>
+                <h4>Rp60.000</h4>
+                <button class="btn-add-cart">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://placehold.co/400x300/9c6644/ffffff?text=Es+Kopi+Susu"
+                     alt="Es Kopi Susu">
+                <h3>Es Kopi Susu</h3>
+                <p>Minuman</p>
+                <h4>Rp18.000</h4>
+                <button class="btn-add-cart">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://placehold.co/400x300/b08968/ffffff?text=Cappuccino"
+                     alt="Cappuccino">
+                <h3>Cappuccino</h3>
+                <p>Minuman</p>
+                <h4>Rp22.000</h4>
+                <button class="btn-add-cart">Tambah ke Keranjang</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Tentang Kami -->
+    <section class="about" id="about">
+        <h2>Tentang Warung Kami</h2>
+        <p>
+            Warung Kopi Nusantara menyediakan berbagai pilihan kopi
+            dengan cita rasa khas Indonesia. Kami ingin menemani
+            setiap momenmu dengan secangkir kopi yang nikmat.
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <p>&copy; 2026 Warung Kopi Nusantara</p>
+        <p>Menikmati Kopi, Merayakan Cerita.</p>
+    </footer>
+
+    <!-- Keranjang -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <button id="closeCart">Tutup</button>
+        <h2>Keranjang Belanja</h2>
+        <div id="cartItems"></div>
+        <h3>Total: <span id="cartTotal">Rp0</span></h3>
+        <button id="checkoutBtn">Checkout</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
